@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Requests\LoginRequest;
 use App\Services\UserService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class LoginController {
 
@@ -35,5 +36,19 @@ class LoginController {
         return response()->json([
             'token' => $token
         ]);  
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function user(Request $request): JsonResponse
+    {
+        return response()->json([
+            'user' => [
+                'name' => 'Test',
+                'email' => 'test@test.com'
+            ]
+        ]);
     }
 }
